@@ -2,4 +2,10 @@
 
 let name = prompt('What is your name?');
 
-alert("Hello," + " " + name + "!" + "How are you?");
+let question = confirm('Do you want to see the greeting?')
+if (question) {
+    alert("Hello," + " " + name + "!" + "How are you?");
+}
+else {
+
+}
