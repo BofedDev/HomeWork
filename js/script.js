@@ -1,19 +1,41 @@
 'use strict';
 
+let age = prompt('Скільки вам років?');
 
-let age = prompt('Enter your age');
-let ageTypeNumber = (+age);
-if(age === null || age === "") {
-    alert('Age not specified');
+if (age === null  || age.trim() === '') {
+    alert('Некоректний вік')
 }
-else if (!isNaN(ageTypeNumber) && ageTypeNumber < 18) {
-    let childWithAdult = confirm('You are under 18. Is there an adult with you who allows viewing?');
-    if (childWithAdult) {
-        alert('Access is permitted with the permission of an adult.')
-    } else {
-        alert('Access is denied')
-    }
+age = +age;
+if (isNaN(age) || age <= 0) {
+    alert('Некоректний вік')
 }
-    else if(ageTypeNumber >= 18){
-        alert('Access is allowed. Enjoy your viewing!')
-    }
+else{
+    alert(`Через 5 років вам буде: ${age + 5}`)
+}
+// Second task
+const price1 = "120.50$";
+const price2 = "UAH 999";
+
+const height = "180cm";
+const broken = "abc123";
+
+console.log('parseInt')
+console.log(parseInt(price1));
+//returns before the point
+console.log(parseInt(price2));
+//returns NaN because there are no numbers before the letters returns to the point
+console.log(parseInt(height));
+//displays up to letters
+console.log(parseInt(broken));
+//returns NaN because there are no numbers before the letters
+console.log('parseFloat')
+console.log(parseFloat(price1));
+//reads before and after the period
+console.log(parseFloat(price2));
+//returns NaN because there are no numbers before the letters
+console.log(parseFloat(height));
+//returns to letters
+console.log(parseFloat(broken));
+//returns NaN because there are no numbers before the letters
+
+
