@@ -1,5 +1,5 @@
 'use strict';
-
+console.log('hw_8 1 task')
 const user = {
     name: "Alex",
     age: 25,
@@ -17,3 +17,4 @@ console.log(shortInfo);
     console.log(renamed);
 }
 //I turned it into a block here because it was giving an error due to the location variable.
+
