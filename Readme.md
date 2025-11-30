@@ -1,62 +1,41 @@
 Homework
 
-Homework #8
-Розпакування об’єкта (object destructuring)
-Завдання: Є об’єкт:
-const user = {
-name:"Alex",
-age: 25,
-city: "Kyiv",
-job: "Frontend"
-};
-Виконайте без методів:
-Створіть окремі змінні name, age, city, job через деструктуризацію.
-Створіть новий об’єкт shortInfo, який містить лише name і city.
-Створіть новий об’єкт renamed, у якому ключі будуть перейменовані:
-name → fullName
-city → location
--------
+Homework #9
+Знижка в магазині
+Створіть змінні:
 
-Створення нового масиву вручну
-Завдання: Є:
+hasPromoCode – чи є промокод (boolean)
+cartTotal – сума в кошику (number)
+isBlackFriday – чи сьогодні Black Friday (boolean)
+Умови:
 
-const a = [1, 2, 3];
-Copy code
-const b = [4, 5];
-Сформуйте масив c без методів і без циклів, який виглядає так:
-
-[1, 2, 3, 4, 5]
-Можна тільки:
-
-доступ до індексів,
-написати руками: const c = [a[0], a[1], ...].
+Знижка застосовується, якщо:
+сума в кошику більше або дорівнює 100
+і є промокод
+або сьогодні Black Friday.
+Створіть змінну isDiscountApplied (boolean), яка обчислюється через логічні оператори.
+Виведіть в консоль:
+"Знижка застосована", якщо isDiscountApplied === true
+"Знижка не застосована", якщо isDiscountApplied === false
+Додатково: створіть змінну noDiscount і збережіть в неї результат заперечення isDiscountApplied.
 -----
 
-Робота з масивом об’єктів (тільки доступ за індексом)
-Завдання: Є масив:
+Перевірка форми логінування
+Створіть змінні:
 
-const people = [
-{ name:"Anna", age: 22 },
-{ name: "Oleg", age: 31 },
-{ name: "Maria", age: 27 }
-];
-Створіть змінну firstPersonName → ім'я першої людини.
-Створіть змінну oldest, у яку запишіть об’єкт найстаршої людини (порівняйте people[0].age, people[1].age, people[2].age).
-Створіть об’єкт ageSummary:
-{
-total: people[0].age + people[1].age + people[2].age,
-average: (same sum) / 3
-}
-----
+email – рядок з email користувача
+password – рядок з паролем
+isEmailVerified – чи підтверджений email (boolean)
+Умови:
 
-Модель "кошика товарів" (без push, без циклів)
-Завдання: Є:
-const cart = [
-{ title:"Book", price: 200, qty: 2 },
-{ title: "Laptop", price: 30000, qty: 1 }
-];
-Створіть змінну totalPrice, де порахуйте суму: cart[0].price * cart[0].qty + cart[1].price * cart[1].qty
-Додайте третій товар у новий масив updatedCart (тільки вручну), наприклад:
-
-{ title: "Pen", price: 20, qty: 5 }
-Створіть змінну itemNames, де у вигляді рядка: "Book, Laptop, Pen" (самостійно об’єднайте: cart[0].title + ", " + cart[1].title + ...)
+Вважайте, що:
+поле email вважається заповненим, якщо рядок не порожній
+поле password теж має бути не порожнім
+Користувача можна пускати далі, якщо:
+email заповнений
+password заповнений
+isEmailVerified === true.
+Створіть змінну canLogin (boolean) на основі логічного виразу.
+Виведіть в консоль:
+"Логін успішний", якщо canLogin === true
+"Перевірте дані" – якщо canLogin === false
