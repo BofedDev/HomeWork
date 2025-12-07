@@ -1,16 +1,11 @@
 Homework
 
-Homework #13
-Даний масив із числами. За допомогою циклу знайдіть суму елементів цього масиву, виведіть її в консоль.
+Homework #14
+Реалізуйте функцію generateKey(length, characters), яка повертає рядок випадкових символів із набору characters довжиною length. span>
 
-Copy code
-const arr = [1, 2, 3, 4, 5];
-5. Даний масив із числами. За допомогою циклу знайдіть суму квадратів елементів цього масиву.
+Наприклад:ь, а degree це сама ступіньшляхом зведення числа 3 у деякий ступінь. (Наприклад, числа 9, 81 можна отримати, а 13 - не можна).
 
-Copy code
-const arr = [1, 2, 3, 4, 5];
-Для зведення в квадрат можна використовувати Math.pow() або оператор **
+const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
-Math.pow() — https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
-
-** - number ** degree де number це число яке зводиться в ступінь, а degree це сама ступіньшляхом зведення числа 3 у деякий ступінь. (Наприклад, числа 9, 81 можна отримати, а 13 - не можна).
+const key = generateKey(16, characters);
+console.log(key); // eg599gb60q926j8i
