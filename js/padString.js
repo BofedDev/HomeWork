@@ -1,21 +1,29 @@
 'use strict';
 
-let str = prompt('Введіть якесь повідомлення');
-let num = Number(prompt('Введіть кількість символів які ви хочете щоб було в вашого повідомлення'));
-let symbol = prompt('Введіть один символ який буде додаватися до вашого повідомлення якщо ви ' +
-    'ввели число більше за кількість символів в вашому повідомленні');
-let bool = prompt('Введіть false якщо хочете щоб символи яких невисточає виводилися зліва або true якщо з правої.' +
-    '(за замовчуванням праворуч)')
-
+let message = prompt('Введіть якусь строку.');
+let item = Number(prompt('Який елемент цієї строки ви хочете видалити?'));
+const removeElement = function(arr, item) {
+    arr.splice(item - 1, 1);
+    return arr;
+}//The second option is without splice and indexOf
+/*
+    const removeElement = function(arr, item){
+    for(let i = 0; i < message.length; i++) {
+        if(i !== item - 1){
+            arr.push(message[i]);
+        }
+    }
+    return arr;
+    }
+*/
 const errorNum = function (value){
     if(typeof value !== 'number' || isNaN(value)){
-        return 'Введіть валідне число'
+        return 'Введіть валідне число.'
     }
     else{
         return null;
     }
 }
-
 const errorString = function (value){
     if(value.trim().length === 0){
         return 'Введіть якісь данні ви ввели пусту строку'
@@ -25,38 +33,22 @@ const errorString = function (value){
     }
 
 }
-const padString = function(str, num, symbol, bool){
 
-    if(num > str.length){
-        if(bool === 'false'){
-            str = str.padStart(num, symbol);
-        }
-        else {
-            str = str.padEnd(num, symbol);
-        }
-
-    }
-    else{
-        if(bool === 'false'){
-            str = str.substring(str.length - num, str.length)
-        }
-        else {
-            str = str.substring(0, num);
-        }
-
-    }
-    return str;
+if(errorNum(item)){
+    console.log(errorNum(item))
 }
-if(errorNum(num)){
-    console.log(errorNum(num))
+else if(errorString(message)){
+    console.log(errorString(message))
 }
-else if(errorString(str)){
-    console.log(errorString(str))
-}
-else if(num > str.length && symbol.trim().length === 0){
-    console.log('Помилка ви ввели число більше за строку але нічим її не заповнили')
+else if(item > message.length || item < 1){
+    console.log('Ви ввели індекс більший за кількість символів в рядку який ви прислали або індекс менший за одиницю')
 }
 else{
-    console.log(padString(str, num, symbol, bool))
+    const array = [];
+    for(let i = 0; i < message.length; i++) {
+        array.push(message[i]);
+    }
+    removeElement(array, item);
+    console.log(array);
 }
 
