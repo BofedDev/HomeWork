@@ -1,27 +1,30 @@
 .container {
     justify-content: center;
     display: flex;
-    gap: 30px;
     flex-wrap: wrap;
 }
-.container .card{
-    -webkit-flex-basis: 30%;
-    background: #09a093;
-    border-radius: 10px;
-    padding: 20px;
+
+.list{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+.list li{
+    gap:20%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete{
+    cursor: pointer;
     text-align: center;
-
-}
-.container .card button{
+    width: 20px;
+    border-radius: 50%;
     display: block;
-    margin: auto;
+    background-color: lightskyblue;
 }
-
-.hidden {
-    display: none;
-}
-
-.hidden.visible {
-    display: block;
-    margin-top: 10px;
+.delete:hover{
+    color: red;
+    background-color: grey;
 }
