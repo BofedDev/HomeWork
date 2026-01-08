@@ -1,0 +1,27 @@
+.container {
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.container .card{
+    -webkit-flex-basis: 30%;
+    background: #09a093;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+
+}
+.container .card button{
+    display: block;
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden.visible {
+    display: block;
+    margin-top: 10px;
+}
