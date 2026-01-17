@@ -1,30 +1,82 @@
-.container {
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.list{
+.form-container{
+    padding: 20px;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    width: 150px;
+    gap: 10px;
+    background-color: aquamarine;
 }
-.list li{
-    gap:20%;
-    padding: 10px;
+.form-container label{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
 }
 
-.delete{
-    cursor: pointer;
-    text-align: center;
-    width: 20px;
-    border-radius: 50%;
-    display: block;
-    background-color: lightskyblue;
+.buttons button{
+    font-size: 12px;
 }
-.delete:hover{
+
+
+#container {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    gap:30px;
+}
+
+.not-valid{
+    border: 1px solid red;
+}
+.not-valid:before{
+    position: absolute;
+    content: "Не валідне поле.";
+    top: -10px;
+    left: 0;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+.password-strength {
+    font-size: 11px;
+    margin-top: 2px;
+    font-weight: bold;
+}
+
+.password-strength.weak {
     color: red;
-    background-color: grey;
+}
+
+.password-strength.normal {
+    color: orange;
+}
+
+.password-strength.strong {
+    color: green;
+}
+
+.password-img{
+    width: 20px;
+
 }

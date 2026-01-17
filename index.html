@@ -6,19 +6,34 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-<div class="container">
-    <div>
-        <input type="text" id="input">
-        <button id="btn">Add</button>
-    </div>
-    <div>
-        <ul class="list">
-            <li><p>List item 1</p> <p class="delete">✖</p></li>
-            <li><p>List item 2</p> <p class="delete">✖</p></li>
-            <li><p>List item 3</p> <p class="delete">✖</p></li>
-        </ul>
-    </div>
+<div id="container">
+    <form class="form-container" >
+        <input type="email" placeholder="Email" required name="email">
+        <div class="password-wrapper">
+            <input type="password" placeholder="Password" required name="password">
+            <button type="button" class="toggle-password" data-toggle-password><img src="styles/image/open.png" alt="eyes" class="password-img"></button>
+        </div>
+        <div class="password-strength" id="password-strength"></div>
+        <div class="password-wrapper">
+            <input type="password" placeholder="Confirm password" required name="confirm-password">
+            <button type="button" class="toggle-password" data-toggle-confirm><img src="styles/image/open.png" alt="eyes" class="password-img">️</button>
+        </div>
+        <input type="number" placeholder="Age" required name="age">
+        <select name="city" required>
+                <option value="">Оберіть місто</option>
+                <option value="kyiv">Київ</option>
+                <option value="lviv">Львів</option>
+                <option value="odesa">Одеса</option>
+                <option value="dnipro">Дніпро</option>
+        </select>
+        <label>Погоджуюсь з умовами <input type="checkbox" name="agree" required></label>
+        <div class="buttons">
+            <button data-confirm-button>Зареєструватись</button>
+            <button data-delete-button>Очистити</button>
+        </div>
+    </form>
 </div>
+
 
 
 
