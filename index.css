@@ -1,4 +1,155 @@
-.remove-button{
-    background-color: red;
-    border-radius: 5px;
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #6b48ff, #a78bfa);
+}
+
+.container {
+    margin: 50px auto;
+    border-radius: 16px;
+    background: #fff;
+    padding: 32px;
+    width: 100%;
+    max-width: 480px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 28px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.error-box {
+    background: rgba(254, 226, 226, 0.1);
+    border: 1px solid #f87171;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 28px;
+    color: #fecaca;
+}
+
+.error-box strong {
+    color: #fca5a5;
+}
+
+.error-box ul {
+    margin: 8px 0 0 20px;
+    padding-left: 0;
+    list-style: disc;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #4b20ea;
+}
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #4b20ea;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+input.invalid {
+    border-color: #f87171;
+    background-color: rgba(254, 226, 226, 0.1);
+}
+
+input::placeholder {
+    color: #d1c9c9;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn.save {
+    background: linear-gradient(to right, #6366f1, #8b5cf6);
+    color: white;
+}
+
+.btn.freeze {
+    background: linear-gradient(to right, #6b7280, #9ca3af);
+    color: white;
+}
+
+.btn.show-descriptors {
+    background: linear-gradient(to right, #059669, #10b981);
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.preview {
+    opacity: 0.9;
+    background: #f8eded;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 12px;
+}
+
+.preview h3 {
+    margin: 0 0 16px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.preview p {
+    margin: 12px 0;
+    font-size: 15px;
+}
+
+.preview strong {
+    display: inline-block;
+    width: 110px;
+}
+
+.descriptors-block {
+    opacity: 0.9;
+    background: #d3d3d3;
+    border: 2px solid #10b981;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 12px;
+}
+
+.descriptors-block h3 {
+    margin: 0 0 16px;
+    font-size: 18px;
+    color: #059669;
+}
+
+.descriptors-block pre {
+    background: #f3f4f6;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #374151;
+    margin: 0;
 }
