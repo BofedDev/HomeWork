@@ -1,0 +1,100 @@
+@import url("./reset.css");
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main h1{
+    margin: 30px 0;
+    display: inline-block;
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+}
+.form-section {
+    justify-content: space-between;
+    display: flex;
+    width: 800px;
+}
+.notes-form-container {
+    width: 250px;
+    justify-self: flex-start;
+}
+#notes-form {
+    border-radius: 10px;
+    background-color: #93ecec;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#notes-form input {
+    border-radius: 4px;
+    background-color: white;
+    margin: 15px 10px 30px;
+    border:1px solid black;
+}
+
+#notes-form select {
+    border-radius: 4px;
+    color: white;
+    background-color: #c3c0c0;
+    width: 50%;
+    align-self: center;
+}
+
+.buttons-container {
+    padding: 0 20px 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.buttons-container button{
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px;
+}
+#add-button {
+    background-color: #6eec6e;
+}
+
+#deleteAll-button {
+    background-color: #e44343;
+}
+
+
+#content {
+    min-height: 80px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 0 10px 20px;
+}
+
+.note-card{
+    width: 280px;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+
+.notesList {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.message{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.note-card--important{
+    background-color: yellowgreen;
+}
