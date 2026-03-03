@@ -1,109 +1,68 @@
-Homework #34  -------------
+Homework #35  -------------
 
-Ідея
-Зробити невеликий застосунок для створення та керування короткими нотатками:
+Створити сайт з вибору фотоальбомів за юзером.
 
-додати нотатку
-відмітити як “важливо”
-видалити
-очистити всі
-зберігати в localStorage
-1) Що студент має реалізувати
-   Функціонал (MVP)
-   Створення нотатки
-   Поля:
-   title (обов’язково, мінімум 3 символи)
-   category (одна з: work, study, personal)
-   Після submit нотатка додається в список.
-   Перемикач “Важливо”
-   Кнопка Mark important / Unmark important на кожній нотатці.
-   Важлива нотатка візуально виділяється (класом CSS).
-   Видалення однієї нотатки
-   Кнопка Delete на кожній карточці.
-   Очистити всі
-   Кнопка Clear all.
-   Якщо список порожній — показати повідомлення: No notes yet.
-   Персистентність
-   Після перезавантаження сторінки нотатки мають залишатись.
-2) Обов’язкова структура (спрощене MVC)
-   Структура файлів:
+Вимоги описані нижче
 
-index.html
-style.css
-js/app.js
-js/notes/Model.js
-js/notes/View.js
-js/notes/Controller.js
-Model
-Відповідає за:
+API:
 
-масив нотаток
-localStorage
-CRUD-операції:
-create(data)
-readAll()
-toggleImportant(id)
-delete(id)
-clearAll()
-View
-Відповідає за:
+https://jsonplaceholder.typicode.com/users
 
-рендер списку
-рендер однієї карточки
-очищення контейнера
-показ No notes yet
-Controller
-Відповідає за:
+https://jsonplaceholder.typicode.com/albums?userId=USER_ID
 
-підписку на submit/click
-виклики Model
-оновлення View
-ініціалізацію при DOMContentLoaded
+https://jsonplaceholder.typicode.com/photos?albumId=ALBUM_ID
 
-3) Модель даних
-   {
-   id: Number,
-   title: String,
-   category: "work" | "study" | "personal",
-   important: Boolean,
-   createdAt: String // ISO date
-   }
+HTML (index.html)
+Зробіть:
+select#userSelect (option “Select user…”)
+select#albumSelect (option “Select album…”, disabled поки user не вибраний)
+button#loadBtn (disabled поки album не вибраний)
+div#status (для “Loading…” і помилок)
+div#photos (контейнер для карток фото)
+JS логіка (app.js)
+A. При завантаженні сторінки (DOMContentLoaded)
 
+показати в #status текст “Loading users…”
+fetch /users
+заповнити userSelect опціями (text = name, value = id)
+очистити статус
+B. Коли змінили userSelect
 
-4) Мінімальна HTML-розмітка (що має бути)
-   Форма:
-   input title
-   select category
-   кнопка Add note
-   Контейнер списку:
-<div id="notesList"></div>
-Кнопка:
-Clear all
-Блок/текст:
-No notes yet (показується, коли порожньо)
-5) Валідація (обов’язково)
-title.trim().length >= 3
-category тільки з дозволених значень
-При невалідних даних:
-нотатка не створюється
-вивести просту помилку під формою або alert
-6) Технічні вимоги
-Використовувати Бутстрап
-ES Modules (import/export)
-Event delegation для кнопок у списку
-Код має бути розбитий по класах: Model/View/Controller
-Без дублювання DOM-логіки в Controller (рендер тільки у View)
-7) Acceptance Criteria (критерії здачі)
- Можна додати нотатку
- Можна видалити конкретну нотатку
- Можна переключити important
- Працює Clear all
- Дані зберігаються після reload
- Є повідомлення No notes yet при порожньому списку
- Є базова валідація
- Проєкт має MVC-структуру
-8) Бонус (за бажанням, +level)
-Фільтр All / Important / Category
-Сортування “новіші зверху/знизу”
-Лічильник: Total: X | Important: Y
-Кнопка Edit title (просте редагування через prompt/modal)
+очистити photos
+зробити albumSelect disabled, loadBtn disabled
+показати “Loading albums…”
+fetch /albums?userId=...
+заповнити albumSelect опціями (text = title, value = id)
+увімкнути albumSelect
+очистити статус
+C. Коли змінили albumSelect
+
+якщо albumId вибраний → увімкнути loadBtn, інакше disable
+D. Коли натиснули “Load photos”
+
+очистити photos
+показати “Loading photos…”
+fetch /photos?albumId=...
+відрендерити перші 12 фото
+під рендером додати кнопку “Load more” (якщо фото більше 12)
+Пагінація (дуже проста)
+
+зберігайте allPhotos (масив) і offset (число) у двох змінних
+“Load more” додає ще 12
+коли фото закінчились — ховає/disable кнопку
+Рендер фото (картка)
+Для кожного фото:
+img (src = thumbnailUrl)
+p (title обрізати до 40 символів + …)
+a “Open” (href = url, target="_blank")
+Обробка помилок (обов’язково)
+Для кожного fetch:
+якщо !res.ok → throw new Error("HTTP" + res.status)
+.catch(...) показує Error: ... у #status
+.finally(...) прибирає “Loading…” якщо треба
+Критерії
+
+Працює Users → Albums → Photos
+Є loader через #status
+Є error повідомлення
+Є Load more, який реально довантажує порціями

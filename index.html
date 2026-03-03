@@ -22,66 +22,35 @@
 <body>
 
 <main>
-    <h1>Notes Board</h1>
+    <div class="container">
+        <h1>Photo Gallery</h1>
 
-    <div class="stats-bar" data-stats>Total: 0 | Important: 0</div>
-
-    <section class="form-section">
-        <div class="notes-form-container">
-            <form id="notes-form">
-                <input type="text" placeholder="Title" data-title-form>
-
-                <select name="category" id="category-select" data-select-form>
-                    <option value="work">Work</option>
-                    <option value="study">Study</option>
-                    <option value="personal">Personal</option>
-                </select>
-
-                <p class="text-danger mt-1" data-error></p>
-
-                <div class="buttons-container">
-                    <button type="submit" id="add-button">Add note</button>
-                    <button type="button" id="deleteAll-button">Clear all</button>
-                </div>
-            </form>
-
-            <div class="filter-bar mt-3">
-                <button class="btn btn-sm btn-outline-secondary active" data-filter="all">All</button>
-                <button class="btn btn-sm btn-outline-warning" data-filter="important">Important</button>
-                <button class="btn btn-sm btn-outline-info" data-filter="category">By category</button>
-
-                <select class="form-select form-select-sm mt-2" data-filter-category style="display:none;">
-                    <option value="work">Work</option>
-                    <option value="study">Study</option>
-                    <option value="personal">Personal</option>
+        <div class="controls">
+            <div class="form-group">
+                <label>Select a user:</label>
+                <select id="userSelect">
+                    <option value="">Select user...</option>
                 </select>
             </div>
 
-            <button class="btn btn-sm btn-outline-dark mt-2 w-100" data-sort-btn>↓ Newest first</button>
+            <div class="form-group">
+                <label>Select an album:</label>
+                <select id="albumSelect" disabled>
+                    <option value="">Select album...</option>
+                </select>
+            </div>
+
+            <button id="loadBtn" disabled>Load Photos</button>
         </div>
 
-        <div class="notesList" id="notesList" data-child-container></div>
-    </section>
+        <div id="status"></div>
+
+        <div id="photos"></div>
+    </div>
+
+
+
 </main>
 
-
-<div class="modal fade" id="editTask" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <input type="text" class="form-control" id="editTitleInput" placeholder="New title">
-                <p class="text-danger mt-1" id="editTitleError"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="editTitleSave">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 </html>
