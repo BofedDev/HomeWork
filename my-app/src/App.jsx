@@ -2,16 +2,17 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Card from './components/Card';
+import Definitions from './components/Definitions.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const definitions = [
+        { dt: 'one', dd: 'two', id: 1 },
+        { dt: 'another term', dd: 'another description', id: 2 },
+    ];
 
   return (
     <>
-      <Card title='Bogdan' />
-      <Card text='How are you?' />
-      <Card title='Bogdan' text='How are you?' />
+        <Definitions data={definitions} />
     </>
   )
 }
