@@ -9,7 +9,9 @@ function App() {
 
   return (
     <>
-      <Card />
+      <Card title='Bogdan' />
+      <Card text='How are you?' />
+      <Card title='Bogdan' text='How are you?' />
     </>
   )
 }
