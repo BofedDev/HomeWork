@@ -1,13 +1,17 @@
-Homework #37  -------------
+Homework #38  -------------
 
-Встановіть React.
-Реалізуйте компонент Card, який повертає наступний JSX: 
+Створіть компонент Card.jsx, який повертає таку структуру — 
 <div className="card">
-    <div className="card-body">
-        <h4 className="card-title">Card title</h4>
-        <p className="card-text">Some quick example text to build on the card</p>
-        <button type="button" className="btn btn-primary">Go somewhere</button>
-    </div>
-</div>
-Імпортуйте Card у App.js і відрендерте його.
-Усе має бути зроблено класовими компонентами.
+   <div className="card-body">
+     <h4 className="card-title">hi</h4>
+     <p className="card-text">how are you?</p>
+   </div>
+</div>.
+
+Компонент приймає два пропси: title і text.
+Усередині компонента потрібно прийняти ці пропси та відрендерити їх у відповідних місцях.
+Якщо якийсь із пропсів не переданий, то не рендеримо HTML-код, який його обгортає (тобто блок для title або text взагалі не з’являється).
+Підключіть компонент Card у App.js і відрендерте його 3 рази, передаючи пропси по черзі:
+При першому рендері — тільки title.
+При другому рендері — тільки text.
+При третьому рендері — обидва пропси.
