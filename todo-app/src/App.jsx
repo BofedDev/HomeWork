@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import TodoForm from './components/TodoForm.jsx'
+import Component from './components/Component.jsx'
 
 function App() {
 
     return (
         <>
-            <TodoForm  />
+            <Component  />
         </>
     )
 }
