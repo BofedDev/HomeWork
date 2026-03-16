@@ -1,35 +1,29 @@
-Home Work 42 -------
+Home Work 43 -------
 
 
-Реалізуйте компонент, який складається з двох кнопок і логу подій:
-Лог — це список значень, кожне з яких з’являється після натискання однієї з двох кнопок. Унизу знаходяться старіші події, зверху — новіші.
-Ліва кнопка + додає в лог рядок із новим значенням, що дорівнює: значення «найновішого наявного запису логу» + 1
-Права кнопка - додає в лог рядок із новим значенням, що дорівнює: значення «найновішого наявного запису логу» — 1
-При кліку на запис у лозі він видаляється.
+Реалізуйте компонент <PostCatalog />, який відображає статті, отримані із зовнішнього сервера.
 
+Список постів можна отримати, зробивши запит на сервер
+const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+console.log(res.data);
 
-Початковий HTML —
+Структура, яку ви повинні отримати в результаті —
 
-<div>
-  <div class="btn-group font-monospace" role="group">
-    <button type="button" class="btn btn-outline-success">+</button>
-    <button type="button" class="btn btn-outline-danger">-</button>
-  </div>
+<div class="posts">
+    <ul class="posts__list">
+        <li class="posts_single-post" data-post-id="Id поста">
+            <h3 class="posts__post-title">Заголовок поста</h3>
+            <p class="posts__post-description">Контент поста</p>
+        </li>
+        <li class="posts_single-post" data-post-id="Id следующего поста">
+            <h3 class="posts__post-title">Заголовок поста</h3>
+            <p class="posts__post-description">Контент поста</p>
+        </li>
+    </ul>
 </div>
 
-Після натискання послідовності +, +, -, +:
+Кожен наступний li — це окремий пост.
 
-<div>
-  <div class="btn-group font-monospace" role="group">
-    <button type="button" class="btn btn-outline-success">+</button>
-    <button type="button" class="btn btn-outline-danger">-</button>
-  </div>
-  <div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action">2</button>
-    <button type="button" class="list-group-item list-group-item-action">1</button>
-    <button type="button" class="list-group-item list-group-item-action">2</button>
-    <button type="button" class="list-group-item list-group-item-action">1</button>
-  </div>
-</div>
+Підказки:
 
-Кожне натискання кнопки додає в лог новий рядок зверху.
+fetch — https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch

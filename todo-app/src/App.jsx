@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import Component from './components/Component.jsx'
+import PostCatalog from './components/PostCatalog.jsx'
 
 function App() {
 
     return (
         <>
-            <Component  />
+            <PostCatalog  />
         </>
     )
 }
