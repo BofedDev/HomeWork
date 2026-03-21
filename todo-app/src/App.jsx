@@ -1,11 +1,15 @@
 import { useState } from 'react'
-import PostCatalog from './components/PostCatalog.jsx'
+import MarkdownEditor from './components/MarkdownEditor/MarkdownEditor.jsx'
 
 function App() {
+    const [content, setContent] = useState('')
 
     return (
         <>
-            <PostCatalog  />
+            <MarkdownEditor onContentChange={(content) => {
+                setContent(content)
+                console.log(content)
+            }} />
         </>
     )
 }

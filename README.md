@@ -1,29 +1,18 @@
-Home Work 43 -------
+Home Work 44 -------
 
+Реалізуйте компонент <MarkdownEditor />, який є React-обгорткою для плагіна @toast-ui/editor. Цей плагін дозволяє вбудувати на сторінку Markdown-редактор
+https://ui.toast.com/tui-editor
+Використання — script.js
+Компонент приймає функцію через властивість onContentChange, яка викликається при кожній зміні в редакторі. Функція приймає вхідний вміст редактора. Приклад використання можна побачити у файлі src/index.jsx.
 
-Реалізуйте компонент <PostCatalog />, який відображає статті, отримані із зовнішнього сервера.
+import '@toast-ui/editor/dist/toastui-editor.css';
+import ReactDOM from 'react-dom';
+import React from 'react';
+import MarkdownEditor from './MarkdownEditor.jsx';
+ReactDOM.render(
+<MarkdownEditor onContentChange={console.log} />,
+document.getElementById('container'),
+);
 
-Список постів можна отримати, зробивши запит на сервер
-const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-console.log(res.data);
-
-Структура, яку ви повинні отримати в результаті —
-
-<div class="posts">
-    <ul class="posts__list">
-        <li class="posts_single-post" data-post-id="Id поста">
-            <h3 class="posts__post-title">Заголовок поста</h3>
-            <p class="posts__post-description">Контент поста</p>
-        </li>
-        <li class="posts_single-post" data-post-id="Id следующего поста">
-            <h3 class="posts__post-title">Заголовок поста</h3>
-            <p class="posts__post-description">Контент поста</p>
-        </li>
-    </ul>
-</div>
-
-Кожен наступний li — це окремий пост.
-
-Підказки:
-
-fetch — https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch
+Приклад роботи редактора можна переглянути на сторінці документації.
+Обов’язково реалізуйте все на функціональних компонентах.
