@@ -12,9 +12,12 @@
   "dependencies": {
     "@toast-ui/editor": "^3.2.2",
     "bootstrap": "^5.3.8",
+    "formik": "^2.4.9",
+    "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
