@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Button, Table } from 'react-bootstrap';
+import { Container, Button, Form, Row, Col } from 'react-bootstrap';
 import { getUsers, deleteUser } from '../api/usersApi';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
+import UsersTable from '../components/UsersTable';
 
 const UsersListPage = () => {
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [search, setSearch] = useState('');
+    const [cityFilter, setCityFilter] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,6 +30,12 @@ const UsersListPage = () => {
             .catch(err => setError(err.message));
     };
 
+    const cities = [...new Set(users.map(u => u.address?.city).filter(Boolean))];
+
+    const filteredUsers = users
+        .filter(u => u.name.toLowerCase().includes(search.toLowerCase()))
+        .filter(u => cityFilter ? u.address?.city === cityFilter : true);
+
     if (isLoading) return <Loader />;
     if (error) return <ErrorMessage message={error} />;
 
@@ -39,54 +48,37 @@ const UsersListPage = () => {
                 </Button>
             </div>
 
-            <Table striped bordered hover responsive>
-                <thead className="table-dark">
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Website</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {users.map(user => (
-                    <tr key={user.id}>
-                        <td>{user.id}</td>
-                        <td>{user.name}</td>
-                        <td>{user.email}</td>
-                        <td>{user.phone}</td>
-                        <td>{user.website}</td>
-                        <td>
-                            <div className="d-flex gap-2">
-                                <Button
-                                    size="sm"
-                                    variant="info"
-                                    onClick={() => navigate(`/users/${user.id}`)}
-                                >
-                                    View
-                                </Button>
-                                <Button
-                                    size="sm"
-                                    variant="warning"
-                                    onClick={() => navigate(`/users/${user.id}/edit`)}
-                                >
-                                    Edit
-                                </Button>
-                                <Button
-                                    size="sm"
-                                    variant="danger"
-                                    onClick={() => handleDelete(user.id)}
-                                >
-                                    Delete
-                                </Button>
-                            </div>
-                        </td>
-                    </tr>
-                ))}
-                </tbody>
-            </Table>
+            <Row className="mb-3 g-2">
+                <Col md={6}>
+                    <Form.Control
+                        placeholder="Пошук по імені..."
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                    />
+                </Col>
+                <Col md={4}>
+                    <Form.Select
+                        value={cityFilter}
+                        onChange={e => setCityFilter(e.target.value)}
+                    >
+                        <option value="">Всі міста</option>
+                        {cities.map(city => (
+                            <option key={city} value={city}>{city}</option>
+                        ))}
+                    </Form.Select>
+                </Col>
+                <Col md={2}>
+                    <Button
+                        variant="outline-secondary"
+                        className="w-100"
+                        onClick={() => { setSearch(''); setCityFilter(''); }}
+                    >
+                        Скинути
+                    </Button>
+                </Col>
+            </Row>
+
+            <UsersTable users={filteredUsers} onDelete={handleDelete} />
         </Container>
     );
 };
